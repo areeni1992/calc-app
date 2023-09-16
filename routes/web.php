@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AverageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AverageController::class, 'index'])->name('students.index');
+Route::post('students', [AverageController::class, 'store'])->name('students.store');
+Route::delete('students/{student}', [AverageController::class, 'destroy'])->name('students.destroy');
